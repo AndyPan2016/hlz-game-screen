@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/**
+ * 弹幕 Less
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2019年10月29日17:45:16
+ */
+
+ @import "../../assets/less/commons/_mixins.less";
+
+.ui-barrage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  overflow: hidden;
+  .barrage-row{
+    position: absolute;
+    height: 88px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    .translate(100%);
+    text-align: center;
+    &.transition {
+        .transition(all 10s linear);
+    }
+    &.row-1 {
+        top: 50px;
+    }
+    &.row-2 {
+        top: 188px;
+    }
+    &.row-3 {
+        top: 326px;
+    }
+    &.row-4 {
+        top: 464px;
+    }
+    &.row-5 {
+        top: 602px;
+    }
+    &.row-6 {
+        top: 740px;
+    }
+    &.row-7 {
+        top: 878px;
+    }
+  }
+  .barrage-item{
+    // position: absolute;
+    position: relative;
+    display: inline-block;
+    height: 88px;
+    padding-right: 40px;
+    padding-left: 110px;
+    background: rgba(0, 0, 0, .5);
+    .border-radius(88px);
+    color: #FFF;
+    line-height: 88px;
+    font-size: 26px;
+    font-weight: bold;
+    // left: 0;
+    
+    .photo-thumb{
+        width: 88px;
+        height: 88px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        .border-radius(100%);
+        background: #000;
+        .photo-img{
+            width: 68px;
+            height: 68px;
+            margin: 10px;
+            .border-radius(100%);
+            border: 4px solid #FFF;
+            overflow: hidden;
+        }
+    }
+  }
+}

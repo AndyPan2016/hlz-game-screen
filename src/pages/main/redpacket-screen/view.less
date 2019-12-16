@@ -1,0 +1,655 @@
+@charset "UTF-8";
+/**
+ * 摇一摇红包大屏 Less
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2019年11月19日17:51:14
+ */
+
+@import "../../../assets/less/commons/_mixins.less";
+@import "../../../assets/less/common.less";
+@import "../../../assets/fonts/fonts.less";
+
+.page-main-index{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    /**
+    * 摇摆动画(关键帧)
+    * @name 动画名称
+    * @remark 无
+    */
+    .animation-frame-tada(@name: fn-animation){
+        @keyframes @name
+        {
+            0% {
+                .scale3d(1, 1, 1);
+            }
+            10%, 20% {
+                .scale3d(.9, .9, .9);
+                .rotate3d(0, 0, 1, -8deg);
+            }
+            30%, 50%, 70%, 90% {
+                .scale3d(1.1, 1.1, 1.1);
+                .rotate3d(0, 0, 1, 8deg);
+            }
+            40%, 60%, 80% {
+                .scale3d(1.1, 1.1, 1.1);
+                .rotate3d(0, 0, 1, -8deg);
+            }
+            100% {
+                .scale3d(1, 1, 1);
+            }
+        }
+    }
+    /**
+     * 摇摆动画
+     */
+    //定义动画名称
+    @animation-name-tada: animation-active-tada;
+    //创建一个名称为'animation-active-tada'的摇摆动画
+    .animation-frame-tada(@animation-name-tada);
+    //动画样式设置
+    .animation-tada{
+        //通过动画名称将动画添加到样式中
+        .animation-name(@animation-name-tada);
+        //设置动画时间(1秒)
+        .animation-duration(1.2s);
+        //设置动画速度曲线(直线匀速)
+        .animation-timing-function(linear);
+        //动画的播放次数(重复播放)
+        .animation-iteration-count(infinite);
+    }
+    .game-main-cloud{
+        position: absolute;
+        z-index: 1;
+    }
+    .redpacket-gametitle{
+        position: absolute;
+        top: 240px;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        z-index: 10;
+        span {
+            height: 50px;
+            line-height: 50px;
+            font-size: 50px;
+            color: #FFF;
+            font-family: 'redpacket-font';
+        }
+    }
+    .game-main-wrap{
+        // width: 100%;
+        // height: 100%;
+        // position: relative;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        
+        .redpacket-gametitle-remark{
+            position: absolute;
+            top: 315px;
+            width: 100%;
+            text-align: center;
+            color: #FFF;
+            font-size: 24px;
+        }
+        
+        .redpacket-cont-item{
+            width: 549px;
+            height: 720px;
+            position: absolute;
+            bottom: 0;
+            background: url(../../../assets/images/background/red-packet/bg-item-16-9.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            .join-number{
+                display: inline-block;
+                width: 140px;
+                height: 40px;
+                position: absolute;
+                top: 64px;
+                left: 50%;
+                z-index: 2;
+                margin-left: -70px;
+                font-size: 34px;
+                color: #f6d0ab;
+                line-height: 40px;
+                font-family: 'redpacket-font';
+            }
+            .list-no{
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                background: url(../../../assets/images/background/red-packet/icon-game-ing.png) center 100px no-repeat;
+            }
+            .joinlist-cont{
+                position: absolute;
+                top: 140px;
+                left: 20px;
+                right: 20px;
+                height: 440px;
+                overflow: hidden;
+                .user-thumb {
+                    float: left;
+                    width: 68px;
+                    height: 68px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 4px solid #FFF;
+                    margin: 0 8px;
+                    margin-bottom: 20px;
+                    // background: #000;
+                    img {
+                        width: 101%;
+                        height: 101%;
+                    }
+                    .placeholder {
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        background: #D41034;
+                        text-align: center;
+                        line-height: 58px;
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: #FFF;
+                    }
+                }
+            }
+            .ranklist-cont{
+                position: absolute;
+                top: 86px;
+                left: 30px;
+                right: 30px;
+                height: 475px;
+                overflow: hidden;
+                .list-no{
+                    background-position: center 153px;
+                }
+                .rank-item{
+                    display: block;
+                    height: 44px;
+                    margin-bottom: 10px;
+                    position: relative;
+                    // font-weight: bold;
+                    .item-index{
+                        float: left;
+                        width: 26px;
+                        height: 34px;
+                        line-height: 34px;
+                        text-align: center;
+                        font-size: 18px;
+                        color: #d31737;
+                        margin-top: 5px;
+                        font-weight: bold;
+                    }
+                    &.rank-1 {
+                        .item-index {
+                            line-height: 30px;
+                            background: url(../../../assets/images/background/red-packet/icon-rank-first.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                            color: #D35210;
+                        }
+                    }
+                    &.rank-2 {
+                        .item-index {
+                            line-height: 30px;
+                            background: url(../../../assets/images/background/red-packet/icon-rank-second.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                            color: #878DB0;
+                        }
+                    }
+                    &.rank-3 {
+                        .item-index {
+                            line-height: 30px;
+                            background: url(../../../assets/images/background/red-packet/icon-rank-third.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                            color: #694A9D;
+                        }
+                    }
+                    .item-cont{
+                        display: inline-block;
+                        position: absolute;
+                        top: 5px;
+                        bottom: 5px;
+                        left: 50px;
+                        right: 0px;
+                        background: #FFF;
+                        border-radius: 5px;
+                        .rank-thumb, .placeholder{
+                            display: inline-block;
+                            position: absolute;
+                            top: -5px;
+                            bottom: -5px;
+                            left: -10px;
+                            border: 3px solid #FFF;
+                            border-radius: 50%;
+                            width: 44px;
+                            height: 44px;
+                            // background: #000;
+                        }
+                        .placeholder{
+                            background: #d31737;
+                            font-size: 14px;
+                            font-weight: bold;
+                            text-align: center;
+                            color: #FFF;
+                            line-height: 38px;
+                        }
+                        .rank-nickname{
+                            display: inline-block;
+                            position: absolute;
+                            left: 45px;
+                            right: 90px;
+                            top: 0;
+                            height: 34px;
+                            line-height: 34px;
+                            font-size: 18px;
+                            color: #666666;
+                            text-align: left;
+                            .text-overflow();
+                            font-weight: bold;
+                        }
+                        .rank-money{
+                            float: right;
+                            margin-right: 15px;
+                            height: 34px;
+                            line-height: 34px;
+                            font-size: 20px;
+                            color: #d31737;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 390px;
+                height: 126px;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                margin-left: -195px;
+            }
+            &.redpacket-item-join{
+                left: 315px;
+                &::before {
+                    background: url(../../../assets/images/background/red-packet/part-in-title.png) 0 0 no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            &.redpacket-item-rank{
+                right: 315px;
+                &::before {
+                    height: 70px;
+                    background: url(../../../assets/images/background/red-packet/ranking-title.png) 0 0 no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+        }
+        .redpacket-surplus{
+            position: absolute;
+            width: 144px;
+            height: 340px;
+            left: 50%;
+            margin-left: -72px;
+            bottom: 266px;
+            .redpacket-bg{
+                display: inline-block;
+                width: 137px;
+                height: 149px;
+                background: url(../../../assets/images/background/red-packet/icon-redpacket.png) center center no-repeat;
+                background-size: 100% 100%;
+                position: absolute;
+                top: 50%;
+                margin-top: -75px;
+                left: 50%;
+                margin-left: -68px;
+                font-size: 36px;
+                color: #e22a1b;
+                text-align: center;
+                line-height: 123px;
+            }
+            .redpacket-top{
+                display: inline-block;
+                width: 36px;
+                position: absolute;
+                top: -6px;
+                left: 50%;
+                margin-left: -18px;
+                font-family: 'redpacket-font';
+                font-size: 34px;
+                color: #FFF;
+                line-height: 40px;
+            }
+            .redpacket-bottom{
+                display: inline-block;
+                width: 36px;
+                position: absolute;
+                bottom: -3px;
+                left: 50%;
+                margin-left: -18px;
+                font-family: 'redpacket-font';
+                font-size: 34px;
+                color: #FFF;
+                line-height: 40px;
+            }
+        }
+        .redpacket-rank-last{
+            width: 1300px;
+            height: 722px;
+            background: url(../../../assets/images/background/red-packet/bg-game-over-16-9.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -650px;
+            .rank-last-wrap{
+                width: 1036px;
+                height: 432px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -518px;
+                margin-top: -216px;
+                .rank-last-item{
+                    display: inline-block;
+                    width: 300px;
+                    height: 200px;
+                    background: #FFF;
+                    border-radius: 10px;
+                    .box-shadow(0px 0px 20px rgba(197,9,19,0.14));
+                    position: absolute;
+                    &::before {
+                        display: inline-block;
+                        content: '';
+                        width: 43px;
+                        height: 80px;
+                        position: absolute;
+                        left: 25px;
+                        top: -15px;
+                    }
+                    .rank-thumb-wrap{
+                        display: block;
+                        width: 200px;
+                        height: 145px;
+                        margin: 30px auto;
+                        .thumb-wrap{
+                            display: inline-block;
+                            width: 100%;
+                            height: 112px;
+                            position: relative;
+                            .photo-thumb, .placeholder{
+                                width: 100px;
+                                height: 100px;
+                                border: 2px solid #FFF;
+                                border-radius: 50%;
+                                margin: 0 auto;
+                                overflow: hidden;
+                                position: absolute;
+                                left: 50%;
+                                top: 0;
+                                margin-left: -50px;
+                                // background: #000;
+                            }
+                            .placeholder{
+                                background: #d31737;
+                                font-size: 24px;
+                                font-weight: bold;
+                                text-align: center;
+                                color: #FFF;
+                                line-height: 90px;
+                            }
+                            .redpacket-rank-money{
+                                display: inline-block;
+                                width: 106px;
+                                height: 36px;
+                                text-align: center;
+                                line-height: 36px;
+                                border-radius: 5px;
+                                padding: 0 2px;
+                                .text-overflow();
+                                font-size: 24px;
+                                color: #FFF;
+                                position: absolute;
+                                top: 75px;
+                                left: 50%;
+                                margin-left: -53px;
+                                z-index: 2;
+                                font-weight: bold;
+                            }
+                            &::before {
+                                content: '';
+                                width: 39px;
+                                height: 31px;
+                                float: left;
+                                margin-top: 56px;
+                                margin-left: 30px;
+                            }
+                            &::after {
+                                content: '';
+                                width: 39px;
+                                height: 31px;
+                                float: right;
+                                margin-top: 56px;
+                                margin-right: 30px;
+                            }
+                        }
+                        .rank-last-nickname {
+                            display: block;
+                            .text-overflow();
+                            text-align: center;
+                            font-size: 18px;
+                            color: #666;
+                            margin-top: 10px;
+                            font-weight: bold;
+                        }
+                    }
+                    &.rank-last-first{
+                        height: 240px;
+                        left: 50%;
+                        top: 0;
+                        margin-left: -150px;
+                        z-index: 2;
+                        &::before {
+                            background: url(../../../assets/images/background/red-packet/icon-rank-1.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                        }
+                        .rank-thumb-wrap{
+                            margin-top: 50px;
+                            .thumb-wrap{
+                                &::before {
+                                    background: url(../../../assets/images/background/red-packet/icon-rank1-left.png) 0 0 no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                                &::after {
+                                    background: url(../../../assets/images/background/red-packet/icon-rank1-right.png) 0 0 no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                            }
+                        }
+                        .redpacket-rank-money{
+                            background: #E8B324;
+                        }
+                    }
+                    &.rank-last-second {
+                        top: 40px;
+                        left: 68px;
+                        &::before {
+                            background: url(../../../assets/images/background/red-packet/icon-rank-2.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                        }
+                        .rank-thumb-wrap{
+                            .thumb-wrap{
+                                &::before {
+                                    background: url(../../../assets/images/background/red-packet/icon-rank2-left.png) 0 0 no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                                &::after {
+                                    background: url(../../../assets/images/background/red-packet/icon-rank2-right.png) 0 0 no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                            }
+                        }
+                        .redpacket-rank-money{
+                            background: #D0D9ED;
+                        }
+                    }
+                    &.rank-last-third {
+                        top: 40px;
+                        right: 68px;
+                        &::before {
+                            background: url(../../../assets/images/background/red-packet/icon-rank-3.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                        }
+                        .rank-thumb-wrap{
+                            .thumb-wrap{
+                                &::before {
+                                    background: url(../../../assets/images/background/red-packet/icon-rank3-left.png) 0 0 no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                                &::after {
+                                    background: url(../../../assets/images/background/red-packet/icon-rank3-right.png) 0 0 no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                            }
+                        }
+                        .redpacket-rank-money{
+                            background: #C8B4D8;
+                        }
+                    }
+                }
+                .rank-last-other{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 200px;
+                    z-index: 3;
+                    background: #FFF;
+                    border-radius: 10px;
+                    .box-shadow(0px 0px 20px rgba(197,9,19,0.14));
+                    padding: 20px 0;
+                    overflow: hidden;
+                    &::before, &::after {
+                        content: '';
+                        display: inline-block;
+                        width: 1px;
+                        height: 100px;
+                        border-right: 1px solid #E3E3E3;
+                        position: absolute;
+                        top: 55px;
+                    }
+                    &::before {
+                        left: 350px;
+                    }
+                    &::after {
+                        right: 345px;
+                    }
+                    .rank-other-item{
+                        width: 300px;
+                        height: 50px;
+                        float: left;
+                        margin: 17px 0;
+                        margin-left: 30px;
+                        margin-right: 10px;
+                        position: relative;
+                        .rank-index{
+                            float: left;
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: #666;
+                            height: 100%;
+                            line-height: 50px;
+                        }
+                        .rank-photo-thumb, .placeholder{
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            background: #000;
+                            float: left;
+                            margin-left: 20px;
+                        }
+                        .placeholder{
+                            background: #d31737;
+                            font-size: 14px;
+                            font-weight: bold;
+                            text-align: center;
+                            color: #FFF;
+                            line-height: 50px;
+                        }
+                        .rank-last-nickname{
+                            display: inline-block;
+                            position: absolute;
+                            height: 50px;
+                            line-height: 50px;
+                            left: 100px;
+                            right: 87px;
+                            .text-overflow();
+                            font-size: 14px;
+                            text-align: left;
+                            color: #666;
+                            font-weight: bold;
+                        }
+                        .redpacket-rank-money{
+                            float: right;
+                            width: 75px;
+                            height: 26px;
+                            background: #F22E4F;
+                            border-radius: 5px;
+                            line-height: 26px;
+                            font-size: 16px;
+                            text-align: center;
+                            color: #FFF;
+                            margin-top: 12px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .game-main-bg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: -2px;
+        bottom: 0;
+        z-index: 3;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            right: 44px;
+            bottom: 33px;
+            background: url(../../../assets/images/background/red-packet/icon-redpacket-logo.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    .btn-reset{
+        display: inline-block;
+        background: #F3525C;
+        width: 236px;
+        height: 50px;
+        position: absolute;
+        left: 50%;
+        margin-left: -118px;
+        bottom: 14px;
+        z-index: 4;
+        border-radius: 10px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 24px;
+        color: #FFF;
+    }
+}

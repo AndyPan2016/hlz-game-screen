@@ -1,0 +1,1026 @@
+@charset "UTF-8";
+/**
+ * 数钱游戏 Less
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2019年11月20日20:30:51
+ */
+
+ @import "../../../assets/less/commons/_mixins.less";
+ @import "../../../assets/less/common.less";
+ @import "../../../assets/fonts/fonts.less";
+
+ body{
+     overflow: hidden;
+ }
+
+.page-main-index{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    
+    .money-falling{
+        // width: 100%;
+        // height: 100%;
+        position: absolute;
+        top: -50px;
+        left: -50px;
+        right: -50px;
+        bottom: -50px;
+        overflow: hidden;
+        z-index: 3;
+
+        @moneyScale: 0.6;
+        .animation-falling-1(@name: fn-animation){
+            @keyframes @name {
+                from {
+                    transform: translate(300px, 0) rotate(0deg) scale(@moneyScale, @moneyScale);
+                    .opacity(1);
+                }
+                to {
+                    transform: translate(-2000px, 2600px) rotate(180deg) scale(@moneyScale, @moneyScale);
+                    .opacity(.5);
+                }
+            }
+        }
+        .money-falling-item{
+        display: inline-block;
+        position: absolute;
+
+        @falling-1-time: 5s;
+        @animation-falling-1: animation-falling-1;
+        .animation-falling-1(@animation-falling-1);
+        //动画样式设置
+        .animation-class-falling-1() {
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-falling-1);
+            //设置动画时间(1秒)
+            .animation-duration(@falling-1-time);
+            //动画延时播放
+            .animation-delay(0s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(ease-out);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(1);
+            // 	规定是否应该轮流反向播放动画
+            .animation-direction(normal);
+        }
+        &.falling-start-1{
+            width: 199px;
+            height: 114px;
+            background: url('../../../assets/images/icon/flutter1.png') 0 0 no-repeat;
+            background-size: 100%;
+            top: -114px;
+            left: 300px;
+            .animation-class-falling-1();
+            
+        }
+
+        .animation-falling-2(@name: fn-animation){
+            @keyframes @name {
+            from {
+                transform: translate(0px, 0) rotate(0deg) scale(@moneyScale, @moneyScale);
+                .opacity(1);
+            }
+            to {
+                transform: translate(1920px, 1800px) rotate(-400deg) scale(@moneyScale, @moneyScale);
+                .opacity(.5);
+            }
+            }
+        }
+        @falling-2-time: 5s;
+        @animation-falling-2: animation-falling-2;
+        .animation-falling-2(@animation-falling-2);
+        //动画样式设置
+        .animation-class-falling-2() {
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-falling-2);
+            //设置动画时间(1秒)
+            .animation-duration(@falling-2-time);
+            //动画延时播放
+            .animation-delay(0s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(ease-out);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(1);
+            // 	规定是否应该轮流反向播放动画
+            .animation-direction(normal);
+        }
+        &.falling-start-2{
+            width: 154px;
+            height: 110px;
+            background: url('../../../assets/images/icon/flutter2.png') 0 0 no-repeat;
+            background-size: 100%;
+            top: -110px;
+            left: 50%;
+            .animation-class-falling-2();
+        }
+
+        .animation-falling-3(@name: fn-animation){
+            @keyframes @name {
+            0% {
+                transform: translate(-300px, 0) rotate(0deg) scale(@moneyScale, @moneyScale);
+                .opacity(1);
+            }
+            100% {
+                transform: translate(-600px, 1600px) rotate(-180deg) scale(@moneyScale, @moneyScale);
+                .opacity(.8);
+            }
+            }
+        }
+        @falling-3-time: 3s;
+        @animation-falling-3: animation-falling-3;
+        .animation-falling-3(@animation-falling-3);
+        //动画样式设置
+        .animation-class-falling-3() {
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-falling-3);
+            //设置动画时间(1秒)
+            .animation-duration(@falling-3-time);
+            //动画延时播放
+            .animation-delay(0s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(ease-out);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(1);
+            // 	规定是否应该轮流反向播放动画
+            .animation-direction(normal);
+        }
+        &.falling-start-3{
+            width: 154px;
+            height: 111px;
+            background: url('../../../assets/images/icon/flutter3.png') 0 0 no-repeat;
+            background-size: 100%;
+            top: -111px;
+            left: 50%;
+            .animation-class-falling-3();
+        }
+
+        .animation-falling-4(@name: fn-animation){
+            @keyframes @name {
+            0% {
+                transform: translate(300px, 0) rotateZ(0deg) scale(@moneyScale, @moneyScale);
+                .opacity(1);
+            }
+            100% {
+                transform: translate(-500px, 2000px) rotateZ(-180deg) scale(@moneyScale, @moneyScale);
+                .opacity(.2);
+            }
+            }
+        }
+        @falling-4-time: 4s;
+        @animation-falling-4: animation-falling-4;
+        .animation-falling-4(@animation-falling-4);
+        //动画样式设置
+        .animation-class-falling-4() {
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-falling-4);
+            //设置动画时间(1秒)
+            .animation-duration(@falling-4-time);
+            //动画延时播放
+            .animation-delay(0s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(ease-out);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(1);
+            // 	规定是否应该轮流反向播放动画
+            .animation-direction(normal);
+        }
+        &.falling-start-4{
+            width: 192px;
+            height: 190px;
+            background: url('../../../assets/images/icon/flutter4.png') 0 0 no-repeat;
+            background-size: 100%;
+            top: -190px;
+            left: 50%;
+            .animation-class-falling-4();
+        }
+
+        .animation-falling-5(@name: fn-animation){
+            @keyframes @name {
+            0% {
+                transform: translate(-200px, 0) rotateY(0deg) scale(@moneyScale, @moneyScale);
+                .opacity(1);
+            }
+            100% {
+                transform: translate(300px, 1900px) rotateY(-360deg) scale(@moneyScale, @moneyScale);
+                .opacity(.2);
+            }
+            }
+        }
+        @falling-5-time: 3s;
+        @animation-falling-5: animation-falling-5;
+        .animation-falling-5(@animation-falling-5);
+        //动画样式设置
+        .animation-class-falling-5() {
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-falling-5);
+            //设置动画时间(1秒)
+            .animation-duration(@falling-5-time);
+            //动画延时播放
+            .animation-delay(0s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(ease-out);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(1);
+            // 	规定是否应该轮流反向播放动画
+            .animation-direction(normal);
+        }
+        &.falling-start-5{
+            width: 188px;
+            height: 86px;
+            background: url('../../../assets/images/icon/flutter5.png') 0 0 no-repeat;
+            background-size: 100%;
+            top: -188px;
+            left: 50%;
+            .animation-class-falling-5();
+        }
+        
+
+        .animation-falling-6(@name: fn-animation){
+            @keyframes @name {
+            0% {
+                transform: translate(200px, 0) rotateX(0deg) scale(@moneyScale, @moneyScale);
+                .opacity(1);
+            }
+            100% {
+                transform: translate(0px, 2000px) rotateX(-720deg) scale(@moneyScale, @moneyScale);
+                .opacity(.8);
+            }
+            }
+        }
+
+        @falling-6-time: 5s;
+        @animation-falling-6: animation-falling-6;
+        .animation-falling-6(@animation-falling-6);
+        //动画样式设置
+        .animation-class-falling-6() {
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-falling-6);
+            //设置动画时间(1秒)
+            .animation-duration(@falling-6-time);
+            //动画延时播放
+            .animation-delay(0s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(ease-out);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(1);
+            // 	规定是否应该轮流反向播放动画
+            .animation-direction(normal);
+        }
+        &.falling-start-6{
+            width: 192px;
+            height: 190px;
+            background: url('../../../assets/images/icon/flutter6.png') 0 0 no-repeat;
+            background-size: 100%;
+            top: -190px;
+            left: 50%;
+            .animation-class-falling-6();
+        }
+        }
+    }
+    // 数钱游戏大屏内容区域
+    // background: #FFF;
+    .page-countmoney-frame {
+        .countmoney-result {
+            width: 1340px;
+            height: 600px;
+            // background: url(../../../assets/images/background/red-packet/bg-game-over-16-9.png) 0 0 no-repeat;
+            // background-size: 100% 100%;
+            background: rgba(0, 0, 0, .24);
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            margin-left: -670px;
+            z-index: 5;
+            .countmoney-result-title{
+                display: inline-block;
+                width: 350px;
+                height: 64px;
+                position: absolute;
+                top: 30px;
+                left: 50%;
+                margin-left: -175px;
+                background: url(../../../assets/images/background/countmoney/icon-cmtitle-bg.png) 0 0 no-repeat;
+                background-size: 100% 100%;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 124px;
+                    height: 42px;
+                    position: absolute;
+                    bottom: 5px;
+                    left: 50%;
+                    margin-left: -62px;
+                    background: url(../../../assets/images/background/countmoney/icon-cmtitle-txt.png) 0 0 no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            .button-reset{
+                display: inline-block;
+                width: 160px;
+                height: 40px;
+                line-height: 40px;
+                background: rgba(201, 172, 255, .45);
+                border-radius: 20px;
+                position: absolute;
+                left: 50%;
+                margin-left: -80px;
+                bottom: 26px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                color: #FFF;
+            }
+            .rank-last-wrap{
+                width: 1200px;
+                height: 354px;
+                position: absolute;
+                top: 148px;
+                left: 50%;
+                margin-left: -600px;
+                // margin-top: -216px;
+                .rank-last-item{
+                    display: inline-block;
+                    width: 360px;
+                    height: 200px;
+                    background: #FFF;
+                    border-radius: 20px;
+                    position: absolute;
+                    &::before {
+                        display: inline-block;
+                        content: '';
+                        width: 54px;
+                        height: 80px;
+                        position: absolute;
+                        left: 25px;
+                        top: -10px;
+                    }
+                    .rank-thumb-wrap{
+                        display: block;
+                        width: 200px;
+                        height: 145px;
+                        margin: 30px auto;
+                        position: relative;
+                        
+                        .button-shade{
+                            width: 120px;
+                            height: 30px;
+                            border-radius: 15px;
+                            position: absolute;
+                            left: 50%;
+                            top: 76px;
+                            margin-left: -60px;
+                        }
+                        .photo-wrap{
+                            display: block;
+                            width: 103px;
+                            height: 103px;
+                            border-radius: 100%;
+                            position: relative;
+                            z-index: 2;
+                            margin: 0 auto;
+                            .photo-thumb, .placeholder{
+                                display: inline-block;
+                                width: 91px;
+                                height: 91px;
+                                margin: 6px;
+                                overflow: hidden;
+                                border-radius: 100%;
+                                background: #e03c18;
+                                font-size: 18px;
+                                text-align: left;
+                                line-height: 80px;
+                                color: #FFF;
+                            }
+                            .placeholder {
+                                text-align: center;
+                                line-height: 90px;
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: #FFF;
+                                background: #7B3ECC;
+                            }
+                        }
+                        .ranking-cont{
+                            width: 120px;
+                            height: 30px;
+                            border-radius: 15px;
+                            position: absolute;
+                            z-index: 3;
+                            top: 80px;
+                            left: 50%;
+                            margin-left: -60px;
+                            line-height: 30px;
+                            text-align: center;
+                            font-size: 16px;
+                            letter-spacing: 2px;
+                            font-weight: bold;
+                        }
+                        .nick-name{
+                            display: inline-block;
+                            width: 100%;
+                            .text-overflow();
+                            font-size: 20px;
+                            color: #333;
+                            margin-top: 20px;
+                            text-align: center;
+                            font-weight: bold;
+                            // font-family: 'answer-font';
+                        }
+                    }
+                    &.rank-last-first{
+                        height: 230px;
+                        left: 50%;
+                        top: 0;
+                        margin-left: -180px;
+                        z-index: 2;
+                        .box-shadow(0px 28px 20px rgba(221,207,255,1));
+                        &::before {
+                            background: url(../../../assets/images/icon/icon-rank-first.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                        }
+                        .rank-thumb-wrap{
+                            margin-top: 50px;
+                            .button-shade{
+                                background: #f8cb39;
+                            }
+                            .photo-wrap{
+                                .vertical(#fffa27, #f6c23d);
+                            }
+                            .ranking-cont {
+                                background: #ffde2d;
+                                color: #FFFED9;
+                                text-shadow:#B09869 2px 0 0,#B09869 0 2px 0,#B09869 -2px 0 0,#B09869 0 -2px 0;
+                                -webkit-text-shadow:#B09869 2px 0 0,#B09869 0 2px 0,#B09869 -2px 0 0,#B09869 0 -2px 0;
+                                -moz-text-shadow:#B09869 2px 0 0,#B09869 0 2px 0,#B09869 -2px 0 0,#B09869 0 -2px 0;
+                            }
+                        }
+                        .redpacket-rank-money{
+                            background: #E8B324;
+                        }
+                    }
+                    &.rank-last-second {
+                        top: 30px;
+                        left: 62px;
+                        &::before {
+                            background: url(../../../assets/images/icon/icon-rank-second.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                        }
+                        .rank-thumb-wrap{
+                            .button-shade{
+                                background: #9faac1;
+                                top: 65px;
+                            }
+                            .photo-wrap{
+                                width: 82px;
+                                height: 82px;
+                                .vertical(#bfc5e8, #8f9daf);
+                                .photo-thumb, .placeholder{
+                                    width: 70px;
+                                    height: 70px;
+                                    line-height: 70px;
+                                }
+                            }
+                            .ranking-cont {
+                                top: 68px;
+                                background: #bbc1e0;
+                                color: #FFFED9;
+                                text-shadow:#949FB5 2px 0 0,#949FB5 0 2px 0,#949FB5 -2px 0 0,#949FB5 0 -2px 0;
+                                -webkit-text-shadow:#949FB5 2px 0 0,#949FB5 0 2px 0,#949FB5 -2px 0 0,#949FB5 0 -2px 0;
+                                -moz-text-shadow:#949FB5 2px 0 0,#949FB5 0 2px 0,#949FB5 -2px 0 0,#949FB5 0 -2px 0;
+                            }
+                            .nick-name{
+                                font-size: 16px;
+                                margin-top: 30px;
+                            }
+                        }
+                        .redpacket-rank-money{
+                            background: #D0D9ED;
+                        }
+                    }
+                    &.rank-last-third {
+                        top: 30px;
+                        right: 62px;
+                        &::before {
+                            background: url(../../../assets/images/icon/icon-rank-third.png) 0 0 no-repeat;
+                            background-size: 100% 100%;
+                        }
+                        .rank-thumb-wrap{
+                            .button-shade{
+                                background: #93b8b4;
+                                top: 65px;
+                            }
+                            .photo-wrap{
+                                width: 82px;
+                                height: 82px;
+                                .vertical(#98e7f1, #64959b);
+                                .photo-thumb, .placeholder{
+                                    width: 70px;
+                                    height: 70px;
+                                    line-height: 70px;
+                                }
+                            }
+                            .ranking-cont {
+                                top: 68px;
+                                background: #b3e4e1;
+                                color: #FFFED9;
+                                text-shadow:#7CAEAA 2px 0 0,#7CAEAA 0 2px 0,#7CAEAA -2px 0 0,#7CAEAA 0 -2px 0;
+                                -webkit-text-shadow:#7CAEAA 2px 0 0,#7CAEAA 0 2px 0,#7CAEAA -2px 0 0,#7CAEAA 0 -2px 0;
+                                -moz-text-shadow:#7CAEAA 2px 0 0,#7CAEAA 0 2px 0,#7CAEAA -2px 0 0,#7CAEAA 0 -2px 0;
+                            }
+                            .nick-name{
+                                font-size: 16px;
+                                margin-top: 30px;
+                            }
+                        }
+                        .redpacket-rank-money{
+                            background: #C8B4D8;
+                        }
+                    }
+                }
+                .rank-last-other-shadow{
+                    position: absolute;
+                    left: 29px;
+                    right: 80px;
+                    bottom: 0;
+                    height: 140px;
+                    z-index: 3;
+                    .box-shadow(28px 0px 20px rgba(221,207,255,1));
+                }
+                .rank-last-other{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 140px;
+                    z-index: 3;
+                    background: #FFF;
+                    border-radius: 10px;
+                    // padding: 20px 0;
+                    overflow: hidden;
+                    &::before, &::after {
+                        content: '';
+                        display: inline-block;
+                        width: 1px;
+                        height: 92px;
+                        border-right: 1px solid #E3E3E3;
+                        position: absolute;
+                        top: 24px;
+                    }
+                    &::before {
+                        left: 400px;
+                    }
+                    &::after {
+                        right: 400px;
+                    }
+                    .rank-other-item{
+                        width: 353px;
+                        height: 40px;
+                        float: left;
+                        margin: 15px 0;
+                        margin-left: 30px;
+                        margin-right: 10px;
+                        position: relative;
+                        .rank-index{
+                            float: left;
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: #666;
+                            height: 100%;
+                            line-height: 40px;
+                        }
+                        .rank-photo-thumb, .placeholder{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 100%;
+                            overflow: hidden;
+                            background: #000;
+                            float: left;
+                            margin-left: 20px;
+                        }
+                        .placeholder {
+                            text-align: center;
+                            line-height: 40px;
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #FFF;
+                            background: #7B3ECC;
+                        }
+                        .rank-last-nickname{
+                            display: inline-block;
+                            position: absolute;
+                            height: 40px;
+                            line-height: 40px;
+                            left: 100px;
+                            right: 140px;
+                            .text-overflow();
+                            font-size: 14px;
+                            text-align: left;
+                            color: #666;
+                            font-weight: bold;
+                        }
+                        .redpacket-rank-money{
+                            float: right;
+                            width: 120px;
+                            height: 30px;
+                            background: #9457FF;
+                            border-radius: 15px;
+                            line-height: 30px;
+                            font-size: 18px;
+                            text-align: center;
+                            color: #FFF;
+                            margin-top: 6px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .animation-frame-1(@name: fn-animation){
+            @keyframes @name
+            {
+                0% {
+                    transform: translate(-30px, 30px);
+                    // opacity: 1;
+                }
+                100% {
+                    transform: translate(30px, -30px);
+                    // opacity: .2;
+                }
+            }
+        }
+        /**
+        * 摇摆动画
+        */
+        //定义动画名称
+        @animation-name-1: animation-active-1;
+        //创建一个名称为'animation-active-1'的摇摆动画
+        .animation-frame-1(@animation-name-1);
+        //动画样式设置
+        .animation-1(){
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-name-1);
+            //设置动画时间(1秒)
+            .animation-duration(.6s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(linear);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(infinite);
+            // 动画应该轮流反向播放
+            .animation-direction(alternate);
+        }
+        .icon-gold-1{
+            display: inline-block;
+            width: 81px;
+            height: 72px;
+            background: url(../../../assets/images/icon/icon-gold-1.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 229px;
+            right: -34px;
+            .animation-1();
+        }
+        .animation-frame-2(@name: fn-animation){
+            @keyframes @name
+            {
+                0% {
+                    transform: translate(50px, 50px);
+                    // opacity: 1;
+                }
+                100% {
+                    transform: translate(-50px, -50px);
+                    // opacity: .2;
+                }
+            }
+        }
+        /**
+        * 摇摆动画
+        */
+        //定义动画名称
+        @animation-name-2: animation-active-2;
+        //创建一个名称为'animation-active-2'的摇摆动画
+        .animation-frame-2(@animation-name-2);
+        //动画样式设置
+        .animation-2(){
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-name-2);
+            //设置动画时间(1秒)
+            .animation-duration(.6s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(linear);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(infinite);
+            // 动画应该轮流反向播放
+            .animation-direction(alternate);
+        }
+        .icon-gold-2{
+            display: inline-block;
+            width: 54px;
+            height: 48px;
+            background: url(../../../assets/images/icon/icon-gold-2.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 127px;
+            left: 177px;
+            opacity: .8;
+            .animation-2();
+        }
+        .animation-frame-3(@name: fn-animation){
+            @keyframes @name
+            {
+                0% {
+                    transform: translate(20px, 10px);
+                    // opacity: 1;
+                }
+                100% {
+                    transform: translate(-20px, -10px);
+                    // opacity: .2;
+                }
+            }
+        }
+        /**
+        * 摇摆动画
+        */
+        //定义动画名称
+        @animation-name-3: animation-active-3;
+        //创建一个名称为'animation-active-3'的摇摆动画
+        .animation-frame-3(@animation-name-3);
+        //动画样式设置
+        .animation-3(){
+            //通过动画名称将动画添加到样式中
+            .animation-name(@animation-name-3);
+            //设置动画时间(1秒)
+            .animation-duration(.4s);
+            //设置动画速度曲线(直线匀速)
+            .animation-timing-function(linear);
+            //动画的播放次数(重复播放)
+            .animation-iteration-count(infinite);
+            // 动画应该轮流反向播放
+            .animation-direction(alternate);
+        }
+        .icon-gold-3{
+            display: inline-block;
+            width: 120px;
+            height: 100px;
+            background: url(../../../assets/images/icon/icon-gold-3.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            bottom: -88px;
+            left: 576px;
+            .animation-3();
+        }
+    }
+}
+.page-countmoney-star {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 40px 0 rgba(255, 255, 255, 0.8), 0 0 20px 0 #FFFFFF;
+    animation: glow 5s infinite;
+}
+.page-countmoney-star-medium {
+    width: 3px;
+    height: 3px;
+}
+.page-countmoney-star-big {
+    width: 4px;
+    height: 4px;
+    box-shadow: 0 0 40px 0 #fff, 0 0 20px 0 #FFFFFF, inset 0 0 4px #FFFFFF;
+}
+ 
+@keyframes glow {
+    0% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 0.9;
+    }
+}
+
+.countmoney-title{
+    margin-top:100px;
+    font-size:50px;
+    font-weight: bold;
+    letter-spacing: 10px;
+    height: 100px;
+    line-height: 100px;
+    position: relative;
+    z-index: 2;
+    &.leave-1 {
+        // width: 430px;
+        // margin-left: -215px;
+        font-size: 50px;
+    }
+    &.leave-3 {
+        // width: 780px;
+        // margin-left: -390px;
+        font-size: 50px;
+        // padding: 0 36px;
+    }
+    &.leave-31 {
+        // width: 780px;
+        // margin-left: -390px;
+        font-size: 50px;
+    }
+    &.leave-2 {
+        // width: 620px;
+        // margin-left: -310px;
+        font-size: 36px;
+        // padding: 13px 60px;
+    }
+}
+.countmoney-protagonist{
+    // margin-top:20px;
+    span{
+        font-size:20px;
+        font-weight: bold;
+        margin-left:20px;
+        &:first-child{
+            margin-left:0;
+        }
+    }
+}
+.countmoney-wing{
+    height:58px;
+    width:242px;
+    margin-left:calc(50% - 126px);
+    margin-top:10px;
+    background-color:transparent;
+    background-position-x: center;
+    background-position-y: top;
+    background-size:auto 58px;
+    background-repeat: no-repeat;   
+    background-image:url(../../../assets/images/background/countmoney/bg-countmoney-wing.png);   
+}
+.countmoney-content{
+    // background:red;
+    margin:30px 50px;
+    height:calc(100% - 345px);
+    text-align: left;
+    position: relative;
+    z-index: 5;
+    .gamerank{
+        height:calc(100% - 160px);
+        position: relative;
+    }
+    .content-item{
+        background:rgba(0,0,0,0.24);
+        padding:10px 40px;
+        margin-top:20px;
+        position: relative;
+        &:first-child{
+            margin-top:0;
+            padding:0px 20px 10px 40px;
+        }
+        .gamejoin-number{
+            height:131px;
+            width:230px;
+            background-color:transparent;
+            background-position-x: center;
+            background-position-y: top;
+            background-size:auto 131px;
+            background-repeat: no-repeat;   
+            background-image:url(../../../assets/images/background/countmoney/bg-countmoney-member.png);   
+            text-align: center;
+            line-height: 175px;
+            font-size:50px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .gamejoin-avatar{
+            display: inline-block;
+            // margin-left:40px;
+            position: absolute;
+            left: 300px;
+            right: 0;
+            height: 60px;
+            top: 50%;
+            margin-top: -26px;
+            overflow: hidden;
+            >p{
+                display: inline-block;
+                margin-left:20px;
+                img, .placeholder{
+                    display: inline-block;
+                    width:60px;
+                    height:60px;
+                    .border-radius(50%);
+                    border:3px solid white;
+                    overflow: hidden;
+                }
+                .placeholder {
+                    text-align: center;
+                    line-height: 50px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #FFF;
+                    background: #7B3ECC;
+                }
+            }
+        }
+        .gamerank-title{
+            height:63px;
+            background-color:transparent;
+            background-position-x: center;
+            background-position-y: top;
+            background-size:auto 63px;
+            background-repeat: no-repeat;   
+            background-image:url(../../../assets/images/background/countmoney/bg-countmoney-ladder.png); 
+        }
+        .countmoney-ing{
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 84px;
+            background: url(../../../assets/images/icon/icon-countmoney-ing.png) center center no-repeat;
+            background-size: 179px 84px;
+            left: 15px;
+            top: 157px;
+            z-index: 2;
+        }
+        .gamerank-data{
+            position: absolute;
+            bottom:15px;
+            width:100%;
+            height: 360px;
+            .rank-item{
+                // width:calc((100% - 100px) / 9 - 20px);
+                width: 162px;
+                height: 360px;
+                text-align: center;
+                // display: inline-block;
+                margin-left:20px;
+                float: left;
+                position: relative;
+                .rank-item-wrap {
+                    width: 100%;
+                    height: auto;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+                &:first-child{
+                    margin-left:0;
+                }
+                .avatar{
+                    img, .placeholder{
+                        display: inline-block;
+                        width:60px;
+                        height:60px;
+                        .border-radius(50%);
+                        border:3px solid white;
+                        overflow: hidden;
+                    }
+                    .placeholder {
+                        text-align: center;
+                        line-height: 50px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #FFF;
+                        background: #7B3ECC;
+                    }
+                }
+                .name{
+                    text-align: center;
+                    margin-top:5px;
+                    font-size:20px;
+                    font-weight: bold;
+                    .text-overflow();
+                }
+                .result{
+                    margin:0 auto;
+                    width:calc(100% - 40px);
+                    background:#7b3ecc;
+                    .border-radius(15px);
+                    color: white;
+                    font-size:20px;
+                    font-weight: bold;
+                    padding:4px 0;
+                    margin-top:10px;
+                }
+                .bar{
+                    .vertical(#FFC634, #FF4200, 0%, 100%);
+                    width:100%;
+                    margin-top:10px;
+                    .border-radius(6px);
+                    .transition(all .4s ease);
+                }
+                .ranking{
+                    margin-top:15px;
+                    font-size:26px;
+                    font-weight: bold;
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+}

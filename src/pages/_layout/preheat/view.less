@@ -1,0 +1,501 @@
+@charset "UTF-8";
+/**
+ * 页面级样式
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2019年8月21日13:54:56
+ */
+
+@import "../../../assets/less/commons/_mixins.less";
+
+.page-main{
+  .page-main-body{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    &.ANSWER_GAME {
+      background: url(../../../assets/images/background/bg-round.png) 0 0 no-repeat;
+      background-size: 100% 100%;
+      border: 1px solid #de7b2e;
+    }
+
+    .blessings-wrap {
+      background: rgba(0, 0, 0, .3);
+      .border-radius(30px);
+      position: absolute;
+      color: #FFF;
+      .blessings-text{
+        padding: 0 10px;
+        font-weight: bold;
+        // .text-overflow();
+      }
+      .blessings-remark{
+        padding: 0 10px;
+        font-weight: bold;
+        // .text-overflow();
+      }
+    }
+    .activity-qrcode-wrap{
+      width: 240px;
+      position: absolute;
+      left: 50%;
+      margin-left: -120px;
+      bottom: 200px;
+      .qrcode-wrap{
+        height: 240px;
+        background: #FFF;
+        display: block;
+        padding: 15px;
+        border-radius: 20px;
+        .qrcode-thumb{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .qrcode-text-wrap{
+        display: block;
+        margin-top: 18px;
+        text-align: center;
+        .qrcode-text{
+          display: inline-block;
+          height: 32px;
+          padding-left: 40px;
+          line-height: 32px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #FFF;
+          background: url(../../../assets/images/icon/icon-sweep.png) 0 0 no-repeat;
+          background-size: 30px 30px;
+        }
+      }
+    }
+
+    /**
+    * 摇摆动画(关键帧)
+    * @remark 无
+    */
+    .animation-tada-modify(@name: fn-animation){
+      @keyframes @name {
+        0% {
+          transform:rotate(2deg);
+          transform-origin:50% 0
+        }
+        20% {
+          transform:rotate(10deg);
+          transform-origin:50% 0
+        }
+        40% {
+          transform:rotate(0deg);
+          transform-origin:50% 0
+        }
+        60% {
+          transform:rotate(-2deg);
+          transform-origin:50% 0
+        }
+        80% {
+          transform:rotate(-10deg);
+          transform-origin:50% 0
+        }
+        100% {
+          transform:rotate(0deg);
+          transform-origin:50% 0
+        }
+      }
+    }
+    @tada-name: tada-modify;
+    .animation-tada-modify(@tada-name);
+    //动画样式设置
+    .animation-class-tada-name1() {
+      //通过动画名称将动画添加到样式中
+      .animation-name(@tada-name);
+      //设置动画时间(1秒)
+      .animation-duration(2s);
+      //动画延时播放
+      .animation-delay(0s);
+      //设置动画速度曲线(直线匀速)
+      .animation-timing-function(linear);
+      //动画的播放次数(重复播放)
+      .animation-iteration-count(infinite);
+      // 	规定是否应该轮流反向播放动画
+      .animation-direction(alternate);
+    }
+    .animation-class-tada-name2() {
+      //通过动画名称将动画添加到样式中
+      .animation-name(@tada-name);
+      //设置动画时间(1秒)
+      .animation-duration(3s);
+      //动画延时播放
+      .animation-delay(0s);
+      //设置动画速度曲线(直线匀速)
+      .animation-timing-function(linear);
+      //动画的播放次数(重复播放)
+      .animation-iteration-count(infinite);
+      // 	规定是否应该轮流反向播放动画
+      .animation-direction(alternate);
+    }
+
+    .game-page-bg() {
+      .page-preheat-index{
+        .game-index-main{
+          .game-main-bg{
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            left: 25px;
+            right: 25px;
+            background: url(../../../assets/images/background/bg-game-16-9.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+          }
+          .game-main-wrap{
+            .icon-lantern{
+              width: 109px;
+              height: 220px;
+              background: url(../../../assets/images/icon/icon-lantern.png) 0 0 no-repeat;
+              background-size: 100% 100%;
+              position: absolute;
+              top: 238px;
+              z-index: 10;
+              &.left {
+                left: 18%;
+                .animation-class-tada-name1();
+                &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 33px;
+                  height: 33px;
+                  position: absolute;
+                  top: 77px;
+                  left: -16px;
+                  background: url(../../../assets/images/icon/icon-modification.png) 0 0 no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+              &.right {
+                right: 18%;
+                .animation-class-tada-name2();
+                &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 33px;
+                  height: 33px;
+                  position: absolute;
+                  bottom: 42px;
+                  right: 6px;
+                  background: url(../../../assets/images/icon/icon-modification.png) 0 0 no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.sceen-ratio-16-9, &.sceen-ratio-16-10 {
+      width: 1920px;
+      height: 1080px;
+      margin-left: -960px;
+      margin-top: -540px;
+      .game-page-bg();
+
+      .blessings-wrap {
+        width: 700px;
+        // height: 279px;
+        padding-bottom: 60px;
+        padding-top: 60px;
+        top: 264px;
+        left: 50%;
+        margin-left: -350px;
+        .blessings-text{
+          font-size: 74px;
+          // margin-top: 69px;
+        }
+        .blessings-remark{
+          font-size: 30px;
+          margin-top: 28px;
+        }
+        
+        &.grade-2{
+          .blessings-text{
+            // margin-top: 45px;
+            font-size: 50px;
+            line-height: 60px;
+            // padding: 0 110px;
+            padding: 0 40px;
+          }
+        }
+        &.grade-3{
+          .blessings-text{
+            // margin-top: 60px;
+            font-size: 34px;
+            line-height: 50px;
+            padding: 0 180px;
+            overflow: hidden;
+            letter-spacing: 4px;
+          }
+        }
+        &.grade-4{
+          .blessings-text{
+            // margin-top: 60px;
+            font-size: 34px;
+            line-height: 50px;
+            padding: 0 40px;
+            overflow: hidden;
+            letter-spacing: 4px;
+          }
+        }
+      }
+    }
+    &.sceen-ratio-16-10 {
+      width: 1920px;
+      height: 1200px;
+      margin-left: -960px;
+      margin-top: -600px;
+      .page-preheat-index{
+        .game-index-main{
+          .game-main-wrap{
+            .icon-lantern{
+              top: 265px;
+            }
+            .participant, .real-time-ranking{
+              height: 580px;
+            }
+          }
+        }
+      }
+    }
+    &.sceen-ratio-4-3 {
+      width: 1440px;
+      height: 1080px;
+      margin-left: -720px;
+      margin-top: -540px;
+      .game-page-bg();
+
+      .blessings-wrap {
+        width: 658px;
+        // height: 260px;
+        top: 204px;
+        left: 50%;
+        margin-left: -329px;
+        padding-bottom: 60px;
+        padding-top: 60px;
+        .blessings-text{
+          font-size: 64px;
+          // margin-top: 70px;
+        }
+        .blessings-remark{
+          font-size: 26px;
+          margin-top: 30px;
+        }
+        &.grade-2{
+          .blessings-text{
+            // margin-top: 45px;
+            font-size: 40px;
+            line-height: 60px;
+            padding: 0 40px;
+          }
+        }
+        &.grade-3{
+          .blessings-text{
+            // margin-top: 60px;
+            font-size: 48px;
+            line-height: 55px;
+            padding: 0 110px;
+            overflow: hidden;
+            letter-spacing: 4px;
+          }
+        }
+        &.grade-4{
+          .blessings-text{
+            // margin-top: 60px;
+            font-size: 32px;
+            line-height: 50px;
+            padding: 0 40px;
+            overflow: hidden;
+            letter-spacing: 4px;
+          }
+        }
+      }
+      .page-preheat-index{
+        .game-index-main{
+          .game-main-bg{
+            background: url(../../../assets/images/background/bg-game-4-3.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+          }
+          .game-main-wrap{
+            .game-title{
+              top: 4.6%;
+              width: 22%;
+              margin-left: -11%;
+            }
+            .icon-modification-left{
+              left: 6.5%;
+            }
+            .icon-lantern {
+              top: 180px;
+            }
+            .icon-lion-head{
+              transform: scale(.8, .8);
+              right: 1%;
+            }
+            .icon-sector-1, .icon-sector-2{
+              bottom: 2%;
+              left: 1%;
+            }
+            .icon-sector-3{
+              bottom: 2%;
+              right: 1%;
+            }
+            .title-leave{
+              top: 20%;
+            }
+            .title-remark{
+              top: 32%;
+            }
+            .participant, .real-time-ranking{
+              width: 487px;
+              height: 580px;
+              &::before{
+                transform: scale(.9, .9);
+                top: -33px;
+              }
+              .cont-wrap{
+                margin: 30px 22px;
+                width: 443px;
+                height: 520px;
+              }
+            }
+            .participant-list{
+              width: 400px;
+              left: 18.8%;
+              bottom: 13%;
+              height: 320px;
+              .participant-list-item{
+                width: 60px;
+                height: 60px;
+              }
+            }
+            .real-time-ranking{
+              
+            }
+            .ranking-list{
+              width: 474px;
+              bottom: 12.8%;
+              height: 411px;
+              overflow: hidden;
+              .ranking-list-item{
+                width: 130px;
+                height: 115px;
+                margin-top: 12px;
+                .item-number{
+                  top: -12px;
+                  left: 24px;
+                  right: 10px;
+                  width: auto;
+                  height: 30px;
+                  line-height: 30px;
+                }
+                .item-result{
+                  position: absolute;
+                  float: initial;
+                  display: inline-block;
+                  margin: 0;
+                  bottom: 8px;
+                  left: 8px;
+                  right: 8px;
+                  width: auto;
+                  height: 30px;
+                  line-height: 29px;
+                  padding: 0;
+                }
+                .item-photo{
+                  float: initial;
+                  margin: 30px auto;
+                }
+              }
+            }
+            .game-end-ranking{
+              width: 1015px;
+              height: 560px;
+              margin-left: -507.5px;
+              bottom: 8%;
+              .game-end-cont{
+                width: 975px;
+                height: 520px;
+                .game-end-wrap{
+                  width: 900px;
+                  height: 380px;
+                  margin-top: 80px;
+                  background: url(../../../assets/images/background/bg-end-rang-43.png) 0 0 no-repeat;
+                  background-size: 100% 100%;
+                  .ranking-before-item{
+                    transform: scale(.9, .9);
+                    &.ranking-first {
+                      top: 20px;
+                    }
+                    &.ranking-second{
+                      left: 115px;
+                    }
+                    &.ranking-third{
+                      right: 80px;
+                    }
+                  }
+                  .ranking-other-wrap{
+                    height: 150px;
+                    bottom: 30px;
+                    .ranking-other-item{
+                      width: 150px;
+                      height: 150px;
+                      &::after {
+                        content: '';
+                        display: inline-block;
+                        height: 150px;
+                        border-right: 1px solid #E3E3E3;
+                        position: absolute;
+                        top: 0;
+                        right: -1px;
+                      }
+                      &:last-child{
+                        &::after {
+                          display: none;
+                        }
+                      }
+                      .ranking-number{
+                        float: initial;
+                        display: block;
+                        width: 100%;
+                        margin-top: -10px;
+                        height: auto;
+                        line-height: initial;
+                      }
+                      .photo-thumb{
+                        display: block;
+                        float: initial;
+                        margin: 15px auto;
+                      }
+                      .nick-name{
+                        position: static;
+                        display: block;
+                        height: auto;
+                        line-height: initial;
+                        margin: 0 10px;
+                        margin-top: -15px;
+                        text-align: center;
+                      }
+                      .ranking-cont {
+                        float: initial;
+                        display: block;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

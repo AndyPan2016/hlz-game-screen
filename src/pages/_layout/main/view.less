@@ -1,0 +1,729 @@
+@charset "UTF-8";
+/**
+ * 页面级样式
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2019年8月21日13:54:56
+ */
+
+@import "../../../assets/less/commons/_mixins.less";
+
+.page-main{
+  &.page-main-layout.ANSWER_GAME{
+    background: #1a5672;
+    .page-main-body{
+      background: url(../../../assets/images/background/bg-round.png) 0 0 no-repeat;
+      background-size: 100% 100%;
+      border: 1px solid #de7b2e;
+    }
+  }
+  .page-main-body{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+
+    /**
+    * 摇摆动画(关键帧)
+    * @remark 无
+    */
+    .animation-tada-modify(@name: fn-animation){
+      @keyframes @name {
+        0% {
+          transform:rotate(2deg);
+          transform-origin:50% 0
+        }
+        20% {
+          transform:rotate(10deg);
+          transform-origin:50% 0
+        }
+        40% {
+          transform:rotate(0deg);
+          transform-origin:50% 0
+        }
+        60% {
+          transform:rotate(-2deg);
+          transform-origin:50% 0
+        }
+        80% {
+          transform:rotate(-10deg);
+          transform-origin:50% 0
+        }
+        100% {
+          transform:rotate(0deg);
+          transform-origin:50% 0
+        }
+      }
+    }
+    @tada-name: tada-modify;
+    .animation-tada-modify(@tada-name);
+    //动画样式设置
+    .animation-class-tada-name1() {
+      //通过动画名称将动画添加到样式中
+      .animation-name(@tada-name);
+      //设置动画时间(1秒)
+      .animation-duration(2s);
+      //动画延时播放
+      .animation-delay(0s);
+      //设置动画速度曲线(直线匀速)
+      .animation-timing-function(linear);
+      //动画的播放次数(重复播放)
+      .animation-iteration-count(infinite);
+      // 	规定是否应该轮流反向播放动画
+      .animation-direction(alternate);
+    }
+    .animation-class-tada-name2() {
+      //通过动画名称将动画添加到样式中
+      .animation-name(@tada-name);
+      //设置动画时间(1秒)
+      .animation-duration(3s);
+      //动画延时播放
+      .animation-delay(0s);
+      //设置动画速度曲线(直线匀速)
+      .animation-timing-function(linear);
+      //动画的播放次数(重复播放)
+      .animation-iteration-count(infinite);
+      // 	规定是否应该轮流反向播放动画
+      .animation-direction(alternate);
+    }
+
+    .game-page-bg() {
+      .page-main-index{
+        .game-index-main{
+          .game-main-bg{
+            position: absolute;
+            top: 4px;
+            bottom: 4px;
+            left: 25px;
+            right: 25px;
+            background: url(../../../assets/images/background/bg-game-16-9.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            &::before{
+              display: none;
+            }
+          }
+          .game-main-bg{
+            .icon-lantern{
+              width: 109px;
+              height: 220px;
+              background: url(../../../assets/images/icon/icon-lantern.png) 0 0 no-repeat;
+              background-size: 100% 100%;
+              position: absolute;
+              top: 265px;
+              z-index: 10;
+              &.left {
+                left: 18%;
+                .animation-class-tada-name1();
+                &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 33px;
+                  height: 33px;
+                  position: absolute;
+                  top: 77px;
+                  left: -16px;
+                  background: url(../../../assets/images/icon/icon-modification.png) 0 0 no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+              &.right {
+                right: 18%;
+                .animation-class-tada-name2();
+                &::before {
+                  content: '';
+                  display: inline-block;
+                  width: 33px;
+                  height: 33px;
+                  position: absolute;
+                  bottom: 42px;
+                  right: 6px;
+                  background: url(../../../assets/images/icon/icon-modification.png) 0 0 no-repeat;
+                  background-size: 100% 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.sceen-ratio-16-9, &.sceen-ratio-16-10 {
+      width: 1920px;
+      height: 1080px;
+      margin-left: -960px;
+      margin-top: -540px;
+      .game-page-bg();
+
+      .blessings-wrap {
+        width: 700px;
+        height: 279px;
+        top: 264px;
+        left: 50%;
+        margin-left: -350px;
+        .blessings-text{
+          font-size: 74px;
+          margin-top: 69px;
+        }
+        .blessings-remark{
+          font-size: 30px;
+          margin-top: 28px;
+        }
+        
+        &.grade-2{
+          .blessings-text{
+            margin-top: 45px;
+            font-size: 48px;
+            line-height: 60px;
+            padding: 0 110px;
+          }
+        }
+        &.grade-3{
+          .blessings-text{
+            margin-top: 60px;
+            font-size: 34px;
+            line-height: 50px;
+            padding: 0 110px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+    &.sceen-ratio-16-10 {
+      width: 1920px;
+      height: 1200px;
+      margin-left: -960px;
+      margin-top: -600px;
+      .page-main-index{
+        .game-index-main{
+          .game-main-wrap{
+            .icon-lantern{
+              top: 265px;
+            }
+            .participant, .real-time-ranking{
+              height: 590px;
+            }
+            .participant-list{
+              bottom: 16%;
+              left: 17.6%;
+            }
+            .ranking-list{
+              height: 350px;
+              bottom: 17%;
+              right: 14.6%;
+              .ranking-list-item .item-cont .item-result{
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.sceen-ratio-4-3 {
+      width: 1440px;
+      height: 1080px;
+      margin-left: -720px;
+      margin-top: -540px;
+      background: url(../../../assets/images/background/bg-round-43.png) center center no-repeat;
+      background-size: 99% 100%;
+      .game-page-bg();
+
+      .blessings-wrap {
+        width: 658px;
+        height: 260px;
+        top: 204px;
+        left: 50%;
+        margin-left: -329px;
+        .blessings-text{
+          font-size: 64px;
+          margin-top: 70px;
+        }
+        .blessings-remark{
+          font-size: 26px;
+          margin-top: 30px;
+        }
+        &.grade-2{
+          .blessings-text{
+            margin-top: 45px;
+            font-size: 48px;
+            line-height: 60px;
+            padding: 0 120px;
+          }
+        }
+        &.grade-3{
+          .blessings-text{
+            margin-top: 60px;
+            font-size: 34px;
+            line-height: 50px;
+            padding: 0 51px;
+            overflow: hidden;
+          }
+        }
+      }
+      .page-main-index{
+        .game-index-main{
+          .game-main-bg{
+            background: url(../../../assets/images/background/bg-game-4-3.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            .icon-lantern {
+              top: 180px;
+            }
+            .game-title{
+              top: 4.6%;
+              width: 22%;
+              margin-left: -11%;
+            }
+            .icon-modification-left{
+              left: 6.5%;
+            }
+            .icon-lion-head{
+              transform: scale(.8, .8);
+              right: 1%;
+            }
+            .icon-sector-1, .icon-sector-2{
+              bottom: 2%;
+              left: 1%;
+            }
+            .icon-sector-3{
+              bottom: 2%;
+              right: 1%;
+            }
+            .button-reset{
+              bottom: 100px;
+            }
+          }
+          .game-main-wrap{
+            .title-leave{
+              top: 20%;
+            }
+            .title-remark{
+              top: 32%;
+            }
+            .participant, .real-time-ranking{
+              width: 487px;
+              height: 580px;
+              &::before{
+                transform: scale(.9, .9);
+                top: -33px;
+              }
+              .cont-wrap{
+                margin: 30px 22px;
+                width: 443px;
+                height: 520px;
+              }
+            }
+            .participant-list{
+              width: 400px;
+              left: 18%;
+              bottom: 13%;
+              height: 320px;
+              .participant-list-item{
+                width: 60px;
+                height: 60px;
+                .placeholder {
+                  line-height: 52px;
+                  font-size: 18px;
+                }
+              }
+            }
+            .participant{
+              left: 185px;
+            }
+            .real-time-ranking{
+              right: 185px
+            }
+            .ranking-list{
+              width: 474px;
+              bottom: 12.8%;
+              height: 411px;
+              overflow: hidden;
+              right: 14.1%;
+              .ranking-list-item{
+                width: 130px;
+                height: 115px;
+                margin-top: 12px;
+                .item-number{
+                  top: -12px;
+                  left: 24px;
+                  right: 10px;
+                  width: auto;
+                  height: 30px;
+                  line-height: 30px;
+                }
+                .item-result{
+                  position: absolute;
+                  float: initial;
+                  display: inline-block;
+                  margin: 0;
+                  bottom: 8px;
+                  left: 8px;
+                  right: 8px;
+                  width: auto;
+                  height: 30px;
+                  line-height: 29px;
+                  padding: 0;
+                }
+                .item-photo, .placeholder{
+                  float: initial;
+                  margin: 0px auto;
+                  top: 24px;
+                  left: 50%;
+                  margin-left: -21px;
+                }
+              }
+            }
+            .game-end-ranking{
+              width: 1015px;
+              height: 560px;
+              margin-left: -507.5px;
+              bottom: 8%;
+              .game-end-cont{
+                width: 975px;
+                height: 520px;
+                .game-end-wrap{
+                  width: 900px;
+                  height: 380px;
+                  margin-top: 80px;
+                  background: url(../../../assets/images/background/bg-end-rang-43.png) 0 0 no-repeat;
+                  background-size: 100% 100%;
+                  .ranking-before-item{
+                    transform: scale(.9, .9);
+                    &.ranking-first {
+                      top: 20px;
+                    }
+                    &.ranking-second{
+                      left: 115px;
+                    }
+                    &.ranking-third{
+                      right: 80px;
+                    }
+                  }
+                  .ranking-other-wrap{
+                    height: 150px;
+                    bottom: 30px;
+                    .ranking-other-item{
+                      width: 150px;
+                      height: 150px;
+                      margin-bottom: 50px;
+                      &::after {
+                        content: '';
+                        display: inline-block;
+                        height: 150px;
+                        width: 1px;
+                        border-right: 1px solid #E3E3E3;
+                        position: absolute;
+                        top: 0;
+                        right: -1px;
+                      }
+                      &:last-child{
+                        &::after {
+                          display: none;
+                        }
+                      }
+                      .ranking-number{
+                        float: initial;
+                        display: block;
+                        width: 100%;
+                        margin-top: -10px;
+                        height: auto;
+                        line-height: initial;
+                      }
+                      .photo-thumb, .placeholder{
+                        display: block;
+                        float: initial;
+                        margin: 15px auto;
+                      }
+                      .nick-name{
+                        position: static;
+                        display: block;
+                        height: auto;
+                        line-height: initial;
+                        margin: 0 10px;
+                        margin-top: -6px;
+                        text-align: center;
+                      }
+                      .ranking-cont {
+                        float: initial;
+                        display: block;
+                        margin: 0 auto;
+                        margin-top: 10px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*摇一摇红包大屏样式*/
+  &.RED_PACK, &.SHAKE {
+    &.page-main-layout{
+      background: #441031;
+    }
+    .page-main-body{
+      background: none;
+      background-size: 100% 100%;
+      border: none;
+      .page-main-index{
+        .game-main-cloud {
+          width: 1734px;
+          height: 237px;
+          bottom: 0;
+          left: 50%;
+          margin-left: -836px;
+          background: url(../../../assets/images/background/red-packet/bg-clouds-16-9.png) center center no-repeat;
+          background-size: 100% 100%;
+        }
+        .game-main-bg{
+          background: url(../../../assets/images/background/red-packet/bg-shake-redpacket-16-9.png) 0 0 no-repeat;
+          background-size: 100% 100%;
+          
+          &::before{
+            display: inline-block;
+          }
+        }
+      }
+      &.sceen-ratio-16-10{
+        .page-main-index{
+          .redpacket-gametitle{
+            top: 255px;
+          }
+          .game-main-wrap {
+            .redpacket-cont-item{
+              height: 820px;
+            }
+            .redpacket-rank-last{
+              height: 820px;
+            }
+            .redpacket-gametitle {
+              top: 250px;
+            }
+            .redpacket-gametitle-remark{
+              top: 325px;
+            }
+          }
+        }
+      }
+      &.sceen-ratio-4-3{
+        .page-main-index{
+          .redpacket-gametitle{
+            top: 210px;
+            &.leave-2{
+              span {
+                font-size: 36px;
+              }
+            }
+            &.leave-31{
+              span {
+                font-size: 50px;
+              }
+            }
+          }
+          .game-main-cloud {
+            width: 1320px;
+            height: 171px;
+            bottom: 0;
+            left: 50%;
+            margin-left: -650px;
+            background: url(../../../assets/images/background/red-packet/bg-clouds-4-3.png) center center no-repeat;
+            background-size: 100% 100%;
+          }
+          .game-main-bg{
+            background: url(../../../assets/images/background/red-packet/bg-shake-redpacket-4-3.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+            &::before {
+              right: 22px;
+              bottom: 20px;
+            }
+          }
+          .btn-reset{
+            bottom: 70px;
+          }
+          .game-main-wrap {
+            .redpacket-cont-item{
+              width: 470px;
+              height: 720px;
+              position: absolute;
+              bottom: 0;
+              background: url(../../../assets/images/background/red-packet/bg-item-4-3.png) 0 0 no-repeat;
+              background-size: 100% 100%;
+              &.redpacket-item-join{
+                left: 181px;
+              }
+              &.redpacket-item-rank{
+                right: 181px;
+              }
+            }
+            .redpacket-rank-last{
+                width: 1100px;
+                height: 716px;
+                background: url(../../../assets/images/background/red-packet/bg-game-over-4-3.png) 0 0 no-repeat;
+                background-size: 100% 100%;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                margin-left: -550px;
+            }
+            .redpacket-gametitle {
+              top: 220px;
+            }
+            .redpacket-gametitle-remark{
+              top: 290px;
+            }
+          }
+        }
+      }
+    }
+  }
+  /*数钱大屏样式*/
+  @color-counting-bg:  #7B3ECC;
+  &.COUNT_NUM{
+    &.page-main-layout{
+      .vertical-three-colors(#4b1d89, #3a1d89, 70%, #0a053d); 
+    }
+    .page-main-body{
+      background: none;
+      border: none;
+      z-index: 2;
+      .page-main-index{
+        border:50px solid #7B3ECC;
+        background-color:transparent;
+        background-position-x: center;
+        background-position-y: bottom;
+        background-size:auto 197px;
+        background-repeat: no-repeat;   
+        background-image:url(../../../assets/images/background/countmoney/bg-countmoney-bottom.png);   
+        &:after{
+            content: "";
+            height:174px;
+            width:174px;
+            left:-50px;
+            top:-50px;
+            position: absolute;
+            z-index: 10;
+            background-color:transparent;
+            background-position-x: center;
+            background-position-y: bottom;
+            background-size:174px 174px;
+            background-repeat: no-repeat;   
+            background-image:url(../../../assets/images/icon/icon-cm-round.png);   
+        }
+        &:before{
+            content: "";
+            height:174px;
+            width:174px;
+            right:-50px;
+            top:-50px;
+            position: absolute;
+            z-index: 10;
+            background-color:transparent;
+            background-position-x: center;
+            background-position-y: bottom;
+            background-size:174px 174px;
+            background-repeat: no-repeat;   
+            background-image:url(../../../assets/images/icon/icon-cm-round.png);   
+            .rotate(90deg);
+        }   
+        .page-countmoney-frame{
+            height:100%;
+            width:100%;
+            border:10px solid #C9ACFF;
+            color:white;
+            &:after{
+                content: "";
+                height:174px;
+                width:174px;
+                left:-50px;
+                bottom:-50px;
+                position: absolute;
+                z-index: 10;
+                background-color:transparent;
+                background-position-x: center;
+                background-position-y: bottom;
+                background-size:174px 174px;
+                background-repeat: no-repeat;   
+                background-image:url(../../../assets/images/icon/icon-cm-round.png);   
+                .rotate(270deg);
+            }
+            &:before{
+                content: "";
+                height:174px;
+                width:174px;
+                right:-50px;
+                bottom:-50px;
+                position: absolute;
+                z-index: 10;
+                background-color:transparent;
+                background-position-x: center;
+                background-position-y: bottom;
+                background-size:174px 174px;
+                background-repeat: no-repeat;   
+                background-image:url(../../../assets/images/icon/icon-cm-round.png);   
+                .rotate(180deg);
+            }                  
+        }    
+        .page-countmoney-title{
+            height:152px;
+            width:100%;
+            // left:-50px;
+            top:-40px;
+            position: absolute;
+            z-index: 2;
+            background-color:transparent;
+            background-position-x: center;
+            background-position-y: top;
+            background-size:auto 152px;
+            background-repeat: no-repeat;   
+            background-image:url(../../../assets/images/background/countmoney/bg-countmoney-title.png);   
+        }
+        .page-index-main {
+          .game-main-bg{
+            &::before{
+              display: none;
+            }
+          }
+        }
+      }
+    
+      &.sceen-ratio-16-9{}
+      
+      &.sceen-ratio-16-10{}
+      
+      &.sceen-ratio-4-3{
+        .page-countmoney-frame{
+          .countmoney-title{
+            &.leave-2{
+              font-size: 28px;
+              // padding: 10px 310px;
+              // line-height: 40px;
+            }
+          }
+          .countmoney-result{
+            width: 1250px;
+            margin-left: -625px;
+          }
+          .countmoney-content{
+            .content-item{
+              padding: 10px 35px;
+              .gamerank-data{
+                .rank-item{
+                  width: 110px;
+                  .name{
+                    font-size: 18px;
+                  }
+                  .result{
+                    font-size: 18px;
+                  }
+                  .ranking {
+                    font-size: 22px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
